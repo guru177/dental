@@ -1,0 +1,62 @@
+.main-header {
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.menu-toggle {
+  background: none;
+  color: #666;
+}
+
+.user-profile-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e8f5f1;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-avatar-sm img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.user-name-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+}
+
+.user-clinic-text {
+  font-size: 10px;
+  color: #666;
+}
