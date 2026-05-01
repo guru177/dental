@@ -287,7 +287,7 @@ const Inventory = () => {
     document.body.removeChild(link);
   };
 
-  const tabs = ['Inventory Items', 'Categories', 'Batches', 'Purchase Orders', 'Logs', 'Alerts'];
+  const tabs = ['Inventory Items', 'Categories', 'Batches', 'Purchase Orders'];
 
   return (
     <div className="inventory-module">
