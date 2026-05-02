@@ -48,23 +48,27 @@
   display: flex;
   align-items: center;
   height: 44px;
-  padding: 0 18px;
-  color: #4b5563;
+  padding: 0 14px;
+  margin: 4px 16px;
+  border-radius: 12px;
+  color: #64748b;
   text-decoration: none;
   gap: 12px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   white-space: nowrap;
 }
 
 .nav-item-exact:hover {
-  background-color: #f9fafb;
-  color: #00ca99;
+  background-color: #f8fafc;
+  color: #4f46e5;
+  transform: translateX(4px);
 }
 
 .nav-item-exact.active {
-  background-color: #00ca99;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: #fff !important;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .nav-item-exact.active .item-icon-exact {

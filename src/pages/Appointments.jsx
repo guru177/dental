@@ -630,37 +630,37 @@ const Appointments = () => {
                 ))}
               </tbody>
             </table>
-
-            <div className="appointments-footer">
-              <div className="rows-per-page">
-                Rows per page:
-                <div className="rows-btns">
-                  {[10, 20, 50, 100].map(val => (
-                    <button
-                      key={val}
-                      className={`r-btn ${rowsPerPage === val ? 'active' : ''}`}
-                      onClick={() => { setRowsPerPage(val); setCurrentPage(1); }}
-                    >
-                      {val}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="pagination-controls">
-                <span className="records-count">Total Records: {filteredAppointments.length}</span>
-                <div className="p-btns">
-                  <button className="p-btn" disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)}>
-                    <ChevronLeft size={16} />
-                  </button>
-                  <button className="p-btn active">{currentPage}</button>
-                  <button className="p-btn" disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)}>
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
-              </div>
-            </div>
           </>
         )}
+      </div>
+
+      <div className="appointments-footer">
+        <div className="rows-per-page">
+          Rows per page:
+          <div className="rows-btns">
+            {[10, 20, 50, 100].map(val => (
+              <button
+                key={val}
+                className={`r-btn ${rowsPerPage === val ? 'active' : ''}`}
+                onClick={() => { setRowsPerPage(val); setCurrentPage(1); }}
+              >
+                {val}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="pagination-controls">
+          <span className="records-count">Total Records: {filteredAppointments.length}</span>
+          <div className="p-btns">
+            <button className="p-btn" disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)}>
+              <ChevronLeft size={16} />
+            </button>
+            <div className="p-btn active">{currentPage}</div>
+            <button className="p-btn" disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)}>
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Add/Edit Appointment Modal */}

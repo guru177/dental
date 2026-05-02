@@ -27,7 +27,6 @@ const Sidebar = () => {
 
   const menuItems = [
     { icon: <LayoutGrid size={20} />, label: 'Dashboard', path: '/dashboard' },
-    { icon: <TrendingUp size={20} />, label: 'Analytics', path: '/analytics' },
     { icon: <Calendar size={20} />, label: 'Appointments', path: '/appointments' },
     { icon: <User size={20} />, label: 'Dr Dashboard', path: '/dr-dashboard' },
     { icon: <FileText size={20} />, label: 'Invoices', path: '/billing' },
@@ -39,7 +38,6 @@ const Sidebar = () => {
   ];
 
   const bottomItems = [
-    { icon: <PieChart size={20} />, label: 'Reports', path: '/reports' },
     { icon: <Settings size={20} />, label: 'Settings', path: '/settings' },
     { icon: <HelpCircle size={20} />, label: 'Help Center', path: '/help' },
   ];
@@ -48,7 +46,7 @@ const Sidebar = () => {
     <aside className={`sidebar-exact ${isExpanded ? 'expanded' : 'collapsed'}`}>
       <div className="sidebar-logo-exact">
         <div className="logo-icon-box">
-          <Stethoscope size={24} color="#00ca99" />
+          <Stethoscope size={24} color="#6366f1" />
         </div>
         {isExpanded && <span className="brand-name-exact">dentobees</span>}
       </div>

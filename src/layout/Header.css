@@ -28,20 +28,42 @@
   color: #666;
 }
 
-.user-profile-widget {
+.header-right {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background-color: #e8f5f1;
-  padding: 4px 12px;
-  border-radius: 6px;
+  gap: 16px;
+}
+
+.header-divider {
+  height: 32px;
+  width: 1px;
+  background: #cbd5e1;
+  margin-right: 8px;
+}
+
+.user-profile-widget {
+  position: relative;
+}
+
+.user-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.user-profile-trigger:hover {
+  background: #f8fafc;
 }
 
 .user-avatar-sm img {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .user-info-text {
@@ -51,12 +73,65 @@
 }
 
 .user-name-text {
-  font-size: 12px;
-  font-weight: 700;
-  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
 }
 
 .user-clinic-text {
-  font-size: 10px;
-  color: #666;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.header-chevron {
+  transition: transform 0.2s;
+}
+
+.header-chevron.rotate {
+  transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 200px;
+  background: #f8fafc;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-bottom: 8px;
+  border: 1px solid #f1f5f9;
+  z-index: 100;
+}
+
+.dropdown-header {
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.dropdown-list {
+  list-style: none;
+  padding: 0 12px;
+  margin: 0;
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+  margin-bottom: 4px;
+}
+
+.dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-item:hover {
+  background: #f1f5f9;
 }
