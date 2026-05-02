@@ -2,11 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useSidebar } from '../context/SidebarContext';
+import { useAuth } from '../context/AuthContext';
 import './Header.css';
 
 const Header = () => {
   const { toggleSidebar } = useSidebar();
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -33,24 +35,25 @@ const Header = () => {
         <div className="user-profile-widget" ref={dropdownRef}>
           <div className="user-profile-trigger" onClick={() => setDropdownOpen(!dropdownOpen)}>
             <div className="user-avatar-sm">
-              <img src="https://img.freepik.com/premium-vector/doctor-profile-icon-medical-physician-logo-concept_123447-1282.jpg" alt="User" />
+              <img src={user?.avatar || "https://img.freepik.com/premium-vector/doctor-profile-icon-medical-physician-logo-concept_123447-1282.jpg"} alt="User" />
             </div>
             <div className="user-info-text">
-              <span className="user-name-text">Guru</span>
-              <span className="user-clinic-text">Admin</span>
+              <span className="user-name-text">{user?.name || 'Guest'}</span>
+              <span className="user-clinic-text">{user?.role || 'User'}</span>
             </div>
             <ChevronDown size={14} color="#94a3b8" className={`header-chevron ${dropdownOpen ? 'rotate' : ''}`} />
           </div>
           
           {dropdownOpen && (
             <div className="user-dropdown-menu">
-              <div className="dropdown-header">Guru</div>
+              <div className="dropdown-header">{user?.name || 'Guest'}</div>
               <ul className="dropdown-list">
                 <li className="dropdown-item" onClick={() => {
                   navigate('/profile-settings');
                   setDropdownOpen(false);
                 }}>Profile Settings</li>
                 <li className="dropdown-item" onClick={() => {
+                  logout();
                   navigate('/login');
                   setDropdownOpen(false);
                 }}>Log Out</li>

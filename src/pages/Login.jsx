@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Building2 } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Building2, Loader2 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login } = useAuth();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    setIsLoading(true);
 
-    if (email === 'admin@gmail.com' && password === 'admin123') {
-      navigate('/dashboard');
-    } else {
-      setError('Invalid email or password');
+    try {
+      await login(email, password);
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -75,7 +84,9 @@ const Login = () => {
                 <a href="#" className="forgot-password">Forgot Password</a>
               </div>
 
-              <button type="submit" className="btn-signin">Sign In</button>
+              <button type="submit" className="btn-signin" disabled={isLoading}>
+                {isLoading ? <Loader2 className="spinner-icon" size={16} /> : 'Sign In'}
+              </button>
 
               <button type="button" className="btn-google">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" />

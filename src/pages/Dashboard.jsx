@@ -72,7 +72,7 @@ const Dashboard = () => {
       <div className="dash-header">
         <div>
           <h1 className="dash-title">Dashboard Overview</h1>
-          <p className="dash-subtitle">Welcome back, Dr. Guru. Here's what's happening today.</p>
+          <p className="dash-subtitle">Welcome back, Admin. Here's what's happening today.</p>
         </div>
         <div className="dash-header-actions">
           <button className="btn-outline-action"><Calendar size={16} /> Today: {new Date().toLocaleDateString()}</button>

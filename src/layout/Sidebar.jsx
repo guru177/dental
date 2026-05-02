@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { 
-  LayoutGrid, 
-  TrendingUp, 
-  Calendar, 
-  User, 
-  FileText, 
-  ArrowLeftRight, 
-  Users, 
-  Pill, 
-  Stethoscope, 
-  ShoppingBag, 
-  Warehouse, 
-  FileCheck, 
+import {
+  LayoutGrid,
+  TrendingUp,
+  Calendar,
+  User,
+  FileText,
+  ArrowLeftRight,
+  Users,
+  Pill,
+  Stethoscope,
+  ShoppingBag,
+  Warehouse,
+  FileCheck,
   Megaphone,
   PieChart,
   Settings,
@@ -48,14 +48,14 @@ const Sidebar = () => {
         <div className="logo-icon-box">
           <Stethoscope size={24} color="#6366f1" />
         </div>
-        {isExpanded && <span className="brand-name-exact">dentobees</span>}
+        {isExpanded && <span className="brand-name-exact">Clinic Master</span>}
       </div>
-      
+
       <nav className="sidebar-nav-exact">
         {menuItems.map((item, index) => (
-          <NavLink 
-            key={index} 
-            to={item.path} 
+          <NavLink
+            key={index}
+            to={item.path}
             className={({ isActive }) => isActive ? 'nav-item-exact active' : 'nav-item-exact'}
           >
             <div className="item-icon-exact">{item.icon}</div>
@@ -67,13 +67,13 @@ const Sidebar = () => {
             )}
           </NavLink>
         ))}
-        
+
         <div className="nav-divider"></div>
-        
+
         {bottomItems.map((item, index) => (
-          <NavLink 
-            key={index} 
-            to={item.path} 
+          <NavLink
+            key={index}
+            to={item.path}
             className={({ isActive }) => isActive ? 'nav-item-exact active' : 'nav-item-exact'}
           >
             <div className="item-icon-exact">{item.icon}</div>
