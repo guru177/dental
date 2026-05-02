@@ -665,8 +665,13 @@ const Appointments = () => {
 
       {/* Add/Edit Appointment Modal */}
       {showAddModal && (
-        <div className="exact-modal-overlay" onClick={(e) => e.target === e.currentTarget && resetForm() || setShowAddModal(false)}>
-          <div className="exact-modal">
+        <div className="exact-modal-overlay" onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            resetForm();
+            setShowAddModal(false);
+          }
+        }}>
+          <div className="exact-modal" onClick={e => e.stopPropagation()}>
             <div className="exact-modal-header">
               <h2>{editingAppointment ? 'Edit Appointment' : 'Add New Appointment'}</h2>
               <button className="exact-close" onClick={() => { resetForm(); setShowAddModal(false); }}><X size={20} /></button>
@@ -852,8 +857,8 @@ const Appointments = () => {
 
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
-        <div className="exact-modal-overlay" onClick={() => setShowDeleteModal(false)}>
-          <div className="exact-modal delete-modal">
+        <div className="exact-modal-overlay" onClick={(e) => e.target === e.currentTarget && setShowDeleteModal(false)}>
+          <div className="exact-modal delete-modal" onClick={e => e.stopPropagation()}>
             <div className="exact-modal-body" style={{ textAlign: 'center', padding: '48px 32px' }}>
               <div className="delete-icon-circle">
                 <AlertTriangle size={32} color="#ef4444" />
