@@ -87,12 +87,13 @@ const Login = () => {
               <button type="submit" className="btn-signin" disabled={isLoading}>
                 {isLoading ? <Loader2 className="spinner-icon" size={16} /> : 'Sign In'}
               </button>
-
-              <button type="button" className="btn-google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" />
-                Sign in with Google
-              </button>
             </form>
+
+            <div className="login-footer-links">
+              <a href="#">Privacy Policy</a>
+              <span className="separator">•</span>
+              <a href="#">Terms of Service</a>
+            </div>
           </div>
         </div>
       </div>
